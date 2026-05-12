@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Retina in a Dish 2026 Access</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(0, 180, 220, 0.35), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(0, 70, 140, 0.45), transparent 35%),
+        linear-gradient(135deg, #061827, #0b2d42 45%, #03111d);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      color: #ffffff;
+      overflow: hidden;
+    }
+
+    .background-orb {
+      position: fixed;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      background: rgba(0, 198, 255, 0.16);
+      filter: blur(18px);
+      animation: floatOrb 7s ease-in-out infinite alternate;
+      z-index: 0;
+    }
+
+    .orb-one {
+      top: -100px;
+      left: -80px;
+    }
+
+    .orb-two {
+      right: -120px;
+      bottom: -120px;
+      animation-delay: 1.2s;
+      background: rgba(255, 255, 255, 0.10);
+    }
+
+    @keyframes floatOrb {
+      from { transform: translateY(0) scale(1); }
+      to { transform: translateY(35px) scale(1.08); }
+    }
+
+    .access-card {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 460px;
+      padding: 34px 28px;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      text-align: center;
+      animation: cardIn 0.8s ease forwards;
+    }
+
+    @keyframes cardIn {
+      from {
+        opacity: 0;
+        transform: translateY(24px) scale(0.96);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .logo-wrap {
+      width: 210px;
+      height: 160px;
+      margin: 0 auto 22px;
+      border-radius: 24px;
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(255, 255, 255, 0.65);
+      box-shadow: inset 0 0 18px rgba(255,255,255,0.25), 0 16px 34px rgba(0,0,0,0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-wrap img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      border-radius: 16px;
+    }
+
+    h1 {
+      font-size: clamp(28px, 6vw, 42px);
+      line-height: 1.05;
+      margin-bottom: 10px;
+      letter-spacing: -1px;
+    }
+
+    .subtitle {
+      font-size: 15px;
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.82);
+      margin-bottom: 26px;
+    }
+
+    .password-box {
+      display: flex;
+      gap: 10px;
+      align-items: stretch;
+    }
+
+    input {
+      flex: 1;
+      min-width: 0;
+      border: 1px solid rgba(255,255,255,0.32);
+      border-radius: 16px;
+      padding: 15px 16px;
+      background: rgba(255,255,255,0.14);
+      color: #ffffff;
+      font-size: 16px;
+      outline: none;
+    }
+
+    input::placeholder {
+      color: rgba(255,255,255,0.62);
+    }
+
+    input:focus {
+      border-color: rgba(255,255,255,0.85);
+      box-shadow: 0 0 0 4px rgba(255,255,255,0.12);
+    }
+
+    button {
+      border: none;
+      border-radius: 16px;
+      padding: 0 20px;
+      background: #ffffff;
+      color: #063450;
+      font-weight: 700;
+      font-size: 15px;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 36px rgba(0,0,0,0.24);
+    }
+
+    .message {
+      min-height: 22px;
+      margin-top: 14px;
+      font-size: 14px;
+      color: #ffd6d6;
+    }
+
+    .shake {
+      animation: shake 0.35s ease;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-7px); }
+      50% { transform: translateX(7px); }
+      75% { transform: translateX(-4px); }
+    }
+
+    .success {
+      color: #d8ffe4;
+    }
+
+    @media (max-width: 520px) {
+      .access-card {
+        padding: 28px 20px;
+      }
+
+      .password-box {
+        flex-direction: column;
+      }
+
+      button {
+        padding: 15px 20px;
+      }
+
+      .logo-wrap {
+        width: 190px;
+        height: 145px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="background-orb orb-one"></div>
+  <div class="background-orb orb-two"></div>
+
+  <main class="access-card" id="accessCard">
+    <div class="logo-wrap">
+      <img src="assets/logo-lrl.jpg" alt="Leinonen Retina LAB logo" />
+    </div>
+
+    <h1>Retina in a Dish 2026</h1>
+    <p class="subtitle">Enter the course password to open the online abstract book and program.</p>
+
+    <form class="password-box" id="accessForm">
+      <input id="passwordInput" type="password" placeholder="Enter password" autocomplete="current-password" />
+      <button type="submit">Enter</button>
+    </form>
+
+    <div class="message" id="message"></div>
+  </main>
+
+  <script>
+    const CORRECT_PASSWORD = "Retine2026";
+    const TARGET_URL = "https://umairseemab.github.io/febs-RetinaInDish2026/";
+
+    const form = document.getElementById("accessForm");
+    const input = document.getElementById("passwordInput");
+    const message = document.getElementById("message");
+    const card = document.getElementById("accessCard");
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const value = input.value.trim();
+
+      if (value === CORRECT_PASSWORD) {
+        message.textContent = "Access granted. Opening...";
+        message.classList.add("success");
+
+        setTimeout(() => {
+          window.location.href = TARGET_URL;
+        }, 600);
+      } else {
+        message.textContent = "Please enter the correct password.";
+        message.classList.remove("success");
+        card.classList.remove("shake");
+        void card.offsetWidth;
+        card.classList.add("shake");
+        input.focus();
+        input.select();
+      }
+    });
+  </script>
+</body>
+</html>
